@@ -12,7 +12,8 @@ jobs:
     steps:
       # Step 1: Checkout the code
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3 # Triggered by Purva
+
 
       # Step 2: Set up Docker
       - name: Set up Docker Buildx
