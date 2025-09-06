@@ -6,7 +6,8 @@ on:
       - 'backend/**'
 
 jobs:
-  build-and-test:
+  build-and-test: # Trigger CI pipeline
+
     runs-on: ubuntu-latest
 
     steps:
