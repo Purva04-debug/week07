@@ -5,7 +5,7 @@ on:
   push:
     paths:
       - 'backend/**'
-
+      - '.github/workflows/**'  # Include workflow file changes as well
 jobs:
   build-and-test: # Trigger CI pipeline
 
