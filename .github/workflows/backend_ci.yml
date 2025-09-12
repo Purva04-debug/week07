@@ -32,9 +32,12 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/backend:latest backend
+          docker build -t purva04.azurecr.io/backend:latest backend
 
       - name: Push Docker image to ACR
         run: |
-          az acr login --name ${{ secrets.ACR_LOGIN_SERVER }}
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/backend:latest
+          # Extract ACR name from login server
+          ACR_NAME="purva04"
+          az acr login --name $ACR_NAME
+          docker push purva04.azurecr.io/backend:latest
+
