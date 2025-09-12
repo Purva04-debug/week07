@@ -1,4 +1,4 @@
-# test trigger and changes
+# test trigger
 name: Backend CI - Test, Build and Push Images to ACR # This is a trigger for the CI pipeline to run
 
 
