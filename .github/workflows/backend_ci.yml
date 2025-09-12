@@ -15,6 +15,33 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      # 2. Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # 3. Install dependencies for both services
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+          pip install -r backend/order_service/requirements.txt
+          pip install -r backend/product_service/requirements.txt
+
+      # 4. Run backend tests for order_service
+      - name: Run order_service tests
+        run: |
+          cd backend/order_service
+          echo "Running order_service tests..."
+          pytest
+
+      # 5. Run backend tests for product_service
+      - name: Run product_service tests
+        run: |
+          cd backend/product_service
+          echo "Running product_service tests..."
+          pytest
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
